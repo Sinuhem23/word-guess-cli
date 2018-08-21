@@ -12,12 +12,14 @@ var guessesSoFar = [];
 console.log(chalk.cyan("\nWelcome to the Word Guess Game!"));
 console.log(chalk.yellow("Hint:") + " the words are popular NPM packages\n");
 
+// Reset function
 function endGame(outcome) {
   if (outcome === 'win') {
-    console.log("YOU WON!");
+    console.log(chalk.green("\nYou won!"));
+    console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black.underline("in " + (10-guessesRemaining) + " guesses.") + "\n")
   } else {
-    console.log("You lost...");
-    console.log("The correct word was: " + correctWord.correctWord);
+    console.log("\n" + chalk.bgRed.white.bold("You lost..."));
+    console.log(chalk.yellow("The correct word was: ") + chalk.bgYellow.black.underline(correctWord.correctWord) + "\n");
   };
 
   correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
@@ -32,11 +34,18 @@ function endGame(outcome) {
       type: "confirm",
     }
   ]).then(function(response) {
-    console.log(typeof(response.confirm));
+    if (response.confirm) {
+      console.log("\nGreat! Generating a new word...\n");
+      main();
+    } else {
+      console.log("\nHope you see you next time!\n");
+      return;
+    };
 
   });
 };
 
+// Main game
 function main() {
   inquirer.prompt([
     {
@@ -44,7 +53,7 @@ function main() {
       prefix: 'Word:',
       message: chalk.blue(correctWord.update()) +
         "\nGuesses remaining: " + guessesRemaining +
-        "\nIncorrect guesses so far: " + guessesSoFar
+        "\nIncorrect guesses so far: " + guessesSoFar + "\n"
     }
   ]).then(function (data) {
     guessesSoFar.push(data.guess);
@@ -53,11 +62,15 @@ function main() {
     };
     guessesRemaining--;
 
+    if (correctWord.update().toLowerCase() == correctWord.correctWord.toLowerCase()) {
+      endGame('win');
+      return;
+    };
+
     if (guessesRemaining == 0) {
       endGame('loss');
-    } else {
-
-    }
+      return;
+    };
 
 
 
