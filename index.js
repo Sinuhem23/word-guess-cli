@@ -53,7 +53,8 @@ function main() {
       prefix: 'Word:',
       message: chalk.blue(correctWord.update()) +
         "\nGuesses remaining: " + guessesRemaining +
-        "\nIncorrect guesses so far: " + guessesSoFar + "\n"
+        "\nIncorrect guesses so far: " + guessesSoFar.join(' ') + "\n" +
+        "? Guess a letter: "
     }
   ]).then(function (data) {
     guessesSoFar.push(data.guess);
