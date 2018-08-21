@@ -3,7 +3,7 @@ A "Hangman" type game you can play in your terminal.
 
 ## Demo
 <p align="center">
-<img src="https://adnanyousef.github.io/word-guess-cli/demo.gif">
+<img src="./demo.gif">
 </p>
 
 ## Installation
