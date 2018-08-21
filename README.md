@@ -3,8 +3,14 @@ A "Hangman" type game you can play in your terminal.
 
 ## Demo
 <p align="center">
-<img src="./demo2.gif">
+<img src="https://adnanyousef.github.io/word-guess-cli/demo.svg">
 </p>
+
+---
+<p align="center">
+<img src="https://adnanyousef.github.io/word-guess-cli/demo2.svg">
+</p>
+
 
 ## Installation
 You can install and run with NPM. Simply open your terminal and type the following commands:
