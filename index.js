@@ -10,12 +10,12 @@ var guessesRemaining = 10;
 var guessesSoFar = [];
 
 console.log(chalk.cyan("\nWelcome to the Word Guess Game!"));
-console.log(chalk.yellow("Hint:") + " the words are popular NPM packages\n");
+console.log(chalk.yellow("Hint:") + " the words are popular NPM packages.");
 
 // Reset function
 function endGame(outcome) {
   if (outcome === 'win') {
-    console.log(chalk.green("\nYou won!"));
+    console.log(chalk.blue.bold("\nYou won!"));
     console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black.underline("in " + (10-guessesRemaining) + " guesses.") + "\n")
   } else {
     console.log("\n" + chalk.bgRed.white.bold("You lost..."));
@@ -35,10 +35,10 @@ function endGame(outcome) {
     }
   ]).then(function(response) {
     if (response.confirm) {
-      console.log("\nGreat! Generating a new word...\n");
+      console.log(chalk.cyan("\nGreat! Generating a new word..."));
       main();
     } else {
-      console.log("\nHope you see you next time!\n");
+      console.log(chalk.cyan("\nHope you see you next time!\n"));
       return;
     };
 
@@ -50,11 +50,11 @@ function main() {
   inquirer.prompt([
     {
       name: "guess",
-      prefix: 'Word:',
-      message: chalk.blue(correctWord.update()) +
-        "\nGuesses remaining: " + guessesRemaining +
-        "\nIncorrect guesses so far: " + guessesSoFar.join(' ') + "\n" +
-        "? Guess a letter: "
+      prefix: '',
+      message: "\nWord: " + chalk.blue(correctWord.update()) +
+        "\n\nGuesses remaining: " + chalk.magenta.bold(guessesRemaining) +
+        "\nIncorrect guesses so far: " + chalk.magenta.bold(guessesSoFar.join(' ')) + "\n" +
+        "Guess a letter:"
     }
   ]).then(function (data) {
     guessesSoFar.push(data.guess);
