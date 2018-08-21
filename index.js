@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var Word = require('./word.js')
 var chalk = require('chalk');
 var inquirer = require('inquirer');

@@ -11,7 +11,10 @@
     "url": "git+https://github.com/adnanyousef/word-guess-cli.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adnan Yousef",
+  "bin": {
+    "word-guess-cli": "./index.js"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/adnanyousef/word-guess-cli/issues"
