@@ -3,7 +3,7 @@ A "Hangman" type game you can play in your terminal.
 
 ## Demo
 <p align="center">
-<img src="./demo.gif">
+<img src="./demo2.gif">
 </p>
 
 ## Installation
