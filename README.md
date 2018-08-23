@@ -2,7 +2,9 @@
 A "Hangman" type game you can play in your terminal.
 
 ## Demo
-![Demo](./demo2.gif)
+<p align="center">
+<img src="https://adnanyousef.github.io/word-guess-cli/demo2.svg" alt="Demo">
+</p>
 
 ## Installation
 You can install and run with NPM. Simply open your terminal and type the following commands:
